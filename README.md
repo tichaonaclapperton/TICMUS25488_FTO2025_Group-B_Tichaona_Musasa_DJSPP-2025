@@ -30,8 +30,6 @@ Your goal is to build a polished, production-ready React application that offers
 
 ### 🔊 Global Audio Player
 
-![alt text](<Wireframe/Global Audio Player.png>)
-
 - Play audio using the provided **placeholder API**
 - Keep the player **fixed at the bottom** of the screen across all pages
 - Ensure **uninterrupted playback** when navigating between pages
@@ -39,8 +37,6 @@ Your goal is to build a polished, production-ready React application that offers
 - Add a **confirmation prompt** on page reloads during playback
 
 ### ❤️ Favourites
-
-![alt text](<Wireframe/Favourites Page with Navigation.png>)
 
 - Allow users to **favourite or unfavourite episodes** via a button/icon
 - Use **localStorage** to persist favourites across sessions
@@ -55,7 +51,6 @@ Your goal is to build a polished, production-ready React application that offers
 
 ### 🎠 Recommended Shows Carousel
 
-![alt text](<Wireframe/Recommended Shows.png>)
 
 - Add a **horizontally scrollable carousel** to the landing page
 - Show each show’s **image, title, and genre tags**
@@ -64,7 +59,6 @@ Your goal is to build a polished, production-ready React application that offers
 
 ### 🌗 Theme Toggle
 
-![alt text](<Wireframe/Theme Toggle.png>)
 
 - Include a **toggle** for switching between light and dark mode
 - **Persist theme selection** using `localStorage`
