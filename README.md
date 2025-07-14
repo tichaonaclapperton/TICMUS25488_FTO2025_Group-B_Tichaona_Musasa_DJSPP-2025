@@ -51,14 +51,12 @@ Your goal is to build a polished, production-ready React application that offers
 
 ### 🎠 Recommended Shows Carousel
 
-
 - Add a **horizontally scrollable carousel** to the landing page
 - Show each show’s **image, title, and genre tags**
 - Support **looping** and navigation via **swipe or arrows**
 - Clicking a carousel item should navigate to the **show’s detail page**
 
 ### 🌗 Theme Toggle
-
 
 - Include a **toggle** for switching between light and dark mode
 - **Persist theme selection** using `localStorage`
@@ -72,7 +70,7 @@ Your goal is to build a polished, production-ready React application that offers
 - Mark episodes as **"finished"** once fully played
 - Display **progress indicators** for episodes in progress
 - Allow users to **reset listening history**
-- Associate listening history with a **mock user**, if implemented
+- Save listening history in local storage
 
 ## ✅ Deliverables
 
