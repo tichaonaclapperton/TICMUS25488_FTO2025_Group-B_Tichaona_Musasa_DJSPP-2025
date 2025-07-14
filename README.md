@@ -40,7 +40,7 @@ Your goal is to build a polished, production-ready React application that offers
 
 ### ❤️ Favourites
 
-![alt text](<Wireframe/Favourites Page.png>)
+![alt text](<Wireframe/Favourites Page with Navigation.png>)
 
 - Allow users to **favourite or unfavourite episodes** via a button/icon
 - Use **localStorage** to persist favourites across sessions
