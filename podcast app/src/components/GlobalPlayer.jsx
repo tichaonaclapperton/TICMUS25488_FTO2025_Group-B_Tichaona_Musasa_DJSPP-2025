@@ -5,7 +5,7 @@ export default function GlobalPlayer() {
 	const { current, isPlaying, progress, duration, togglePlay, seek } =
 		useAudio() || [];
 
-	if (!current) return <h2>loding</h2>; // hide if nothing is playing
+	if (!current) return null; 
 
 	const formatTime = (seconds) => {
 		if (isNaN(seconds)) return "0:00";
