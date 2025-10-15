@@ -4,7 +4,7 @@ import Loading from "../components/Loading";
 import ErrorMessage from "../components/ErrorMessage";
 import SeasonNavigation from "../components/SeasonNavigation";
 import formatDate from "../utilities/Date";
-import {useAudio} from "../contexts/AudioContext";
+import { useAudio } from "../contexts/AudioContext";
 
 const API = "https://podcast-api.netlify.app/id/";
 
