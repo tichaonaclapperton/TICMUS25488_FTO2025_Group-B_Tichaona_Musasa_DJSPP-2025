@@ -4,6 +4,7 @@ import Loading from "../components/Loading";
 import ErrorMessage from "../components/ErrorMessage";
 import SeasonNavigation from "../components/SeasonNavigation";
 import formatDate from "../utilities/Date";
+import {useAudio} from "../contexts/AudioContext";
 
 const API = "https://podcast-api.netlify.app/id/";
 
@@ -14,6 +15,8 @@ export default function ShowDetail() {
 	const [data, setData] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
+	const { playEpisode } = useAudio() || [];
+	const [openSeasonIndex, setOpenSeasonIndex] = useState(null);
 
 	useEffect(() => {
 		if (!id) return;
@@ -21,6 +24,7 @@ export default function ShowDetail() {
 
 		async function fetchData() {
 			setLoading(true);
+			setError(null);
 			setError(null);
 			try {
 				const res = await fetch(`${API}${id}`);
@@ -41,7 +45,6 @@ export default function ShowDetail() {
 	}, [id]);
 
 	const goBack = () => {
-		// Navigate back or to home if no previous history
 		if (window.history.length > 2) navigate(-1);
 		else navigate("/");
 	};
@@ -107,8 +110,80 @@ export default function ShowDetail() {
 					</div>
 				</div>
 			</header>
+			<section className="season-section">
+				<h2>Seasons</h2>
+				{seasons.length === 0 && <p>No seasons available.</p>}
 
-			<SeasonNavigation seasons={seasons} />
+				<ul className="season-list">
+					{seasons.map((season, idx) => {
+						const episodes = Array.isArray(season.episodes)
+							? season.episodes
+							: [];
+						const isOpen = openSeasonIndex === idx;
+
+						return (
+							<li key={idx} className="season-item">
+								<button
+									className="season-toggle"
+									onClick={() => setOpenSeasonIndex(isOpen ? null : idx)}
+								>
+									<div>
+										<strong>
+											{season.title || `Season ${season.number ?? idx + 1}`}
+										</strong>
+										<div className="muted">{episodes.length} episodes</div>
+									</div>
+									<div className="chev">{isOpen ? "▾" : "▸"}</div>
+								</button>
+
+								{isOpen && (
+									<ol className="episode-list">
+										{episodes.map((ep, i) => (
+											<li key={i} className="episode">
+												<div className="episode-meta">
+													<div className="ep-number">{ep.number ?? i + 1}</div>
+													<div className="ep-title">{ep.title || ep.name}</div>
+												</div>
+
+												<div className="ep-body">
+													{ep.image && (
+														<img
+															src={ep.image}
+															alt={ep.title}
+															className="ep-thumb"
+														/>
+													)}
+
+													<p className="ep-desc">
+														{(ep.description || ep.summary || "").slice(0, 160)}
+														...
+													</p>
+
+													{/* ✅ Always use the placeholder API audio */}
+													<button
+														className="play-btn"
+														onClick={() =>
+															playEpisode({
+																title: ep.title,
+																audio:
+																	"https://podcast-api.netlify.app/placeholder-audio.mp3",
+																showTitle: data.title,
+																image: ep.image || data.image,
+															})
+														}
+													>
+														▶️ Play
+													</button>
+												</div>
+											</li>
+										))}
+									</ol>
+								)}
+							</li>
+						);
+					})}
+				</ul>
+			</section>
 		</main>
 	);
 }
