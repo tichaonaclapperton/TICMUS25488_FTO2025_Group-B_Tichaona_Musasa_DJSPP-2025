@@ -78,8 +78,11 @@ export default function Home() {
 							p.pubDate ??
 							null,
 						description: p.description ?? p.summary ?? "",
+						
 					})
+					
 				);
+				
 				setPodcasts(normalized);
 			})
 			.catch((err) => {
