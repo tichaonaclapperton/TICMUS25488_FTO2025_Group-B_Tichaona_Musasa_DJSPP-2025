@@ -1,5 +1,6 @@
 import React from "react";
 import { useAudio } from "../contexts/AudioContext";
+import '../styling/GlobalPlayer.css'
 
 export default function GlobalPlayer() {
 	const { current, isPlaying, progress, duration, togglePlay, seek } =
