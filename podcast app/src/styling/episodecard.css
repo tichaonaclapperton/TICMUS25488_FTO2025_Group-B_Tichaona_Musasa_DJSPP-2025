@@ -1,102 +1,128 @@
-/* === EPISODE CARD === */
+/* ==================================== */
+/* === Mobile-First Base Styles === */
+/* ==================================== */
+
 .episode-card {
-	display: flex;
-	flex-direction: row !important;
-	justify-content: space-between;
-	align-items: flex-start;
-	gap: 1rem;
-	padding: 1rem;
-	border: 1px solid #e0e0e0;
-	border-radius: 12px;
-	background-color:var(--card-background-color);
-	transition: box-shadow 0.2s ease;
-	margin-bottom: 1rem;
+  display: flex;
+  /* Use column direction for small screens */
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  background-color: var(--card-background-color);
+  transition: box-shadow 0.2s ease;
+  margin-bottom: 1rem;
 }
 
 .episode-card:hover {
-	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
 }
 
 .episode-content {
-	display: flex;
-	gap: 1rem;
-	align-items: flex-start;
-	flex: 1;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  /* Allows content to take up available space */
+  flex: 1;
+  width: 100%; /* Ensure content fills the card width */
 }
 
 .episode-cover {
-	width: 70px;
-	height: 70px;
-	border-radius: 8px;
-	object-fit: cover;
-	background: var(--card-background-color);
+  width: 70px;
+  height: 70px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: var(--card-background-color);
 }
 
 .episode-info {
-	flex: 1;
+  flex: 1; /* Allow info section to grow and take remaining space */
 }
 
 .episode-info h4 {
-	font-size: 1rem;
-	margin: 0;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+  font-size: 1rem;
+  margin: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  /* Allow the h4 content and favorite button to wrap */
+  flex-wrap: wrap;
+  line-height: 1.2;
 }
 
 .episode-info h4 .fav-btn {
   color: var(--text-color);
-	background: none;
-	border: none;
-	font-size: 1.3rem;
-	cursor: pointer;
-	transition: transform 0.2s ease, color 0.2s ease;
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+  /* Prevent the button from shrinking */
+  flex-shrink: 0;
 }
 
 .episode-info h4 .fav-btn:hover {
-	transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .episode-info h4 .fav-btn.active {
-	color: #ff4b5c;
-	transform: scale(1.1);
+  color: #ff4b5c;
+  transform: scale(1.1);
 }
 
 .episode-info .muted {
-	color: #777;
-	font-size: 0.9rem;
-	margin-top: 0.2rem;
+  color: #777;
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
 }
 
 .episode-info .description {
-	color:var(--text-color);
-	margin-top: 0.4rem;
-	font-size: 0.95rem;
+  color: var(--text-color);
+  margin-top: 0.4rem;
+  font-size: 0.95rem;
 }
 
 .episode-info .added-date {
-	font-size: 0.8rem;
-	color: #999;
-	margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: #999;
+  margin-top: 0.5rem;
 }
 
 .play-btn {
-	background: #585866;
-	color: var(--card-background-color);
-	border: none;
-	border-radius: 6px;
-	padding: 0.5rem 0.9rem;
-	cursor: pointer;
-	font-size: 0.9rem;
-	transition: background 0.2s ease;
+  background: #585866;
+  color: var(--card-background-color);
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.2s ease;
+  /* Add margin on mobile so it doesn't touch the description */
+  margin-top: 0.5rem;
+  align-self: flex-end; /* Push button to the right side of the card */
 }
 
 .play-btn:hover {
-	background: #444;
+  background: #444;
 }
-.episode-card {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	gap: 1rem;
+
+/* ==================================== */
+/* ===  Large Screens (Tablet+)   === */
+/* ==================================== */
+
+@media (min-width: 768px) {
+  .episode-card {
+    /* Switch to row direction for larger screens */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .play-btn {
+    /* On larger screens, the button moves to the right of the text */
+    margin-top: 0;
+    align-self: center;
+  }
 }
