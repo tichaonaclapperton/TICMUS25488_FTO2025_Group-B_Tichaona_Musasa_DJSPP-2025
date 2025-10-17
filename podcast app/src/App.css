@@ -1,6 +1,32 @@
 :root {
 	--gap: 16px;
+	--player-color: #585866;
+	--card-background-color: #ffffff;
+	--card-border-color: #dddddd;
+	--text-color: #333333;
+	--secondary-text-color: #666666;
+	--hover-background-color: #f5f5f5;
+	--shadow-color: rgba(0, 0, 0, 0.1);
 }
+
+/* Dark Theme Variables */
+body.dark {
+	--player-color: white;
+	--card-background-color: #1e1e1e;
+	--card-border-color: #444444;
+	--text-color: #f0f0f0;
+	--secondary-text-color: #b0b0b0;
+	--hover-background-color: #2a2a2a;
+	--shadow-color: rgba(0, 0, 0, 0.4);
+}
+
+/* Base styles using variables */
+body {
+	background-color: var(--card-background-color);
+	color: var(--text-color);
+	transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 body {
 	font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial;
 	margin: 0;
@@ -17,7 +43,7 @@ body {
 .brand {
 	text-decoration: none;
 	font-size: 18px;
-	color: white;
+	color: var(--text-color);
 }
 .container {
 	padding: 16px;
@@ -59,7 +85,7 @@ body {
 	margin: 0 0 6px;
 }
 .tag {
-	background: #f0f0f0;
+	background: var(--card-border-color);
 	padding: 2px 6px;
 	margin-right: 6px;
 	border-radius: 999px;
@@ -128,13 +154,13 @@ h1 {
 	color: white;
 }
 
-.home-link{
+.home-link {
 	font-size: 25px;
 	color: #f0f0f0;
 	text-decoration: none;
 }
 
-.home-link:hover{
+.home-link:hover {
 	color: #4a90e2;
 }
 
@@ -172,20 +198,8 @@ h1 {
 	margin: 0 auto;
 }
 
-.back-btn {
-	background-color: black;
-	border-radius: 75%;
-	width: 30px;
-	height: 30px;
-	color: white;
-	border: none;
-	font-size: 1.4rem;
-	cursor: pointer;
-	margin-bottom: 1rem;
-}
-
 .show-header-card {
-	background: #fff;
+	background: var(--card-background-color);
 	border-radius: 12px;
 	padding: 1.5rem;
 	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
@@ -213,12 +227,9 @@ h1 {
 	font-size: 1.8rem;
 	margin-bottom: 0.5rem;
 }
-.show-title {
-	color: black;
-}
 
 .show-desc {
-	color: #555;
+	color: var(--secondary-text-color);
 	margin-bottom: 1rem;
 }
 
@@ -237,7 +248,7 @@ h1 {
 }
 
 .tag {
-	background: #e9eef5;
+	background: var(--card-background-color);
 	padding: 0.25rem 0.8rem;
 	border-radius: 999px;
 	font-size: 0.85rem;
@@ -259,11 +270,11 @@ h1 {
 	border: 1px solid #ddd;
 	padding: 0.4rem 0.6rem;
 	border-radius: 6px;
-	background: #fff;
+	background: white;
 }
 
 .season-card {
-	background: #fff;
+	background: var(--card-background-color);
 	border-radius: 12px;
 	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
 	padding: 1rem;
@@ -311,11 +322,11 @@ h1 {
 
 .episode-content p {
 	margin: 0.3rem 0;
-	color: #555;
+	color: var(--text-color);
 }
 
 .muted {
-	color: #888;
+	color: var(--secondary-text-color);
 }
 
 .small {
@@ -348,9 +359,11 @@ h1 {
 
 .season-selector label {
 	font-weight: 500;
+	color: var(--text-color);
 }
 
 .season-selector select {
+	color: var(--text-color);
 	padding: 0.4rem 0.6rem;
 	border-radius: 8px;
 	border: 1px solid #ccc;
@@ -360,11 +373,11 @@ h1 {
 .back-btn {
 	margin-top: 4.5rem;
 	margin-left: 1.5rem;
-	background-color: black;
+	background-color: #585866;
 	border-radius: 75%;
 	width: 30px;
 	height: 30px;
-	color: white;
+	color: var(--card-background-color);
 	border: none;
 	font-size: 1.4rem;
 	cursor: pointer;
@@ -374,6 +387,9 @@ h1 {
 	font-weight: 500;
 	margin-bottom: 0;
 	transition: color 0.2s ease;
+}
+.theme-toggle-btn {
+	border-radius: 25px;
 }
 
 .back-btn:hover {
