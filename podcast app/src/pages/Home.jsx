@@ -5,8 +5,8 @@ import ErrorMessage from "../components/ErrorMessage";
 import SearchBar from "../utilities/SearchBar";
 import GenreFilter from "../utilities/GenreFilter";
 import Pagination from "../utilities/Pagination";
-import SortDropdown from '../utilities/SortDropDown';
-import PodcastPreviewCard from '../components/PodCastPreviewCard';
+import SortDropdown from "../utilities/SortDropDown";
+import PodcastPreviewCard from "../components/PodCastPreviewCard";
 import { genres } from "../genres/genre";
 
 const API_URL = "https://podcast-api.netlify.app/";
@@ -78,11 +78,9 @@ export default function Home() {
 							p.pubDate ??
 							null,
 						description: p.description ?? p.summary ?? "",
-						
 					})
-					
 				);
-				
+
 				setPodcasts(normalized);
 			})
 			.catch((err) => {
