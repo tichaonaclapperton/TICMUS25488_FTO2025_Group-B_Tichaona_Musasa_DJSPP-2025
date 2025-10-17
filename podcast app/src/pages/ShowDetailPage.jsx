@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import EpisodeCard from "../components/EpisodeCard";
 import useFavorites from "../contexts/FavoritesContext";
-import "../styling/showdetail.css"; 
+import Back from "../utilities/BackBtn";
+import "../styling/showdetail.css";
 
 export default function ShowDetailPage({ data }) {
 	const { favourites = [], toggleFavorite } = useFavorites();
@@ -16,6 +17,7 @@ export default function ShowDetailPage({ data }) {
 
 	return (
 		<main className="show-detail-page">
+			<Back />
 			{/* --- SHOW HEADER --- */}
 			<section className="show-header-card">
 				<img src={data.image} alt={data.title} className="show-cover" />
@@ -72,7 +74,6 @@ export default function ShowDetailPage({ data }) {
 					</select>
 				)}
 			</section>
-
 			{/* --- SEASON CARD --- */}
 			<section className="season-card">
 				<div className="season-info">
@@ -101,7 +102,6 @@ export default function ShowDetailPage({ data }) {
 					</div>
 				</div>
 			</section>
-
 			{/* --- EPISODE LIST --- */}
 			<section className="episodes-section">
 				<ul className="episode-list">
