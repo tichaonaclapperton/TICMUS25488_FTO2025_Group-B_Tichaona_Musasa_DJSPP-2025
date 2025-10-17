@@ -1,105 +1,104 @@
-# DJS05: Show Detail Page with Routing and Navigation
+# 🎧 DJS Portfolio Piece – Podcast App (React)
 
-## Project Overview
+## 📋 Overview
 
-In this project, you will build a podcast show detail page as part of a larger podcast browsing app. When users select a show from the homepage or listing page, they should be taken to a dedicated page that displays all details about that show. The app will support dynamic routing so each show has its own unique URL.
+In this final phase, you will enhance the podcast app you've been building throughout the DJS course. The app already includes a landing page with searchable, sortable, and filterable podcast previews, as well as a show detail page with season toggling.
 
-You will implement data fetching based on the show ID in the URL, handle loading and error states gracefully, and ensure a smooth user experience by preserving search filters and pagination when users navigate back to the homepage. Additionally, you will build a season navigation system allowing users to expand or switch between seasons to browse episodes efficiently.
+This project introduces key new features including global audio playback, favouriting episodes, deployment best practices, UI enhancements, and optional listening progress tracking.
 
-This project will demonstrate your ability to work with dynamic routes, manage state across pages, handle asynchronous data, and create a clean, maintainable React codebase.
+Your goal is to build a polished, production-ready React application that offers an engaging and seamless user experience.
 
+> **Tip:** You are encouraged to explore the React ecosystem to help implement features efficiently.
 
-![alt text](<Show Page Podcast.png>)
+## 🎯 Objectives
 
+- Implement a global audio player with full playback control
+- Add support for favouriting episodes with persistent storage
+- Introduce a recommended shows carousel on the landing page
+- Support theme toggling (light/dark mode)
+- Ensure robust routing and deploy the app with professional polish
+- Optionally track listening progress across episodes and sessions
 
----
+## 🚀 Core Features & User Stories
 
-## Core Objectives
+### 🛠️ Setup and Deployment
 
-- Implement **dynamic routing** for unique show detail pages.
-- Pass the correct show ID via route parameters and use it to **fetch specific show data**.
-- Gracefully handle **loading, error, and empty states** during data fetching.
-- Display comprehensive show details including title, image, description, genres, and last updated date.
-- Preserve previous **filters and search state** when navigating back to the homepage.
-- Create an intuitive **season navigation** UI to expand and switch between seasons without excessive scrolling.
-- Display episode information clearly with numbering, titles, images, and shortened descriptions.
-- Maintain **high code quality** with documentation (JSDoc) and consistent formatting.
+- Deploy your app to **Vercel** using a **custom domain or URL**
+- Add a **custom favicon** for easy identification in browser tabs
+- Use tools like [metatags.io](https://metatags.io) to set **rich social media preview metadata**
+- Ensure that direct access to dynamic routes (e.g. `/show/1`) works correctly (SPA routing fallback)
 
----
+### 🔊 Global Audio Player
 
-### API Endpoints
+- Play audio using the provided **placeholder API**
+- Keep the player **fixed at the bottom** of the screen across all pages
+- Ensure **uninterrupted playback** when navigating between pages
+- Provide **play, pause, seek, and progress tracking**
+- Add a **confirmation prompt** on page reloads during playback
 
-Data can be called via a `fetch` request to the following three endpoints. Note that there is not always a one-to-one mapping between endpoints and actual data structures. Also note that **\*`<ID>`** indicates where the dynamic ID for the requested item should be placed. For example: `[https://podcast-api.netlify.app/genre/3](https://podcast-api.netlify.app/genre/3)`\*
+### ❤️ Favourites
 
-| URL                                          |                                                                                        |
-| -------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `https://podcast-api.netlify.app`            | Returns an array of PREVIEW                                                            |
-| `https://podcast-api.netlify.app/genre/<ID>` | Returns a GENRE object                                                                 |
-| `https://podcast-api.netlify.app/id/<ID>`    | Returns a SHOW object with several SEASON and EPISODE objects directly embedded within |
+- Allow users to **favourite or unfavourite episodes** via a button/icon
+- Use **localStorage** to persist favourites across sessions
+- Provide **visual feedback** for favourited items (e.g., filled heart)
+- Create a **favourites page** displaying all saved episodes
+- Display **associated show and season** for each favourite
+- Show the **date/time added** to favourites
+- **Group favourites by show title**
+- Add **sorting options**:
+  - A–Z / Z–A by title
+  - Newest / Oldest by date added
 
-### Genre Titles
+### 🎠 Recommended Shows Carousel
 
-Since genre information is only exposed on `PREVIEW` by means of the specific `GENRE` id, it is recommended that you include the mapping between genre id values and title in your code itself:
+- Add a **horizontally scrollable carousel** to the landing page
+- Show each show’s **image, title, and genre tags**
+- Support **looping** and navigation via **swipe or arrows**
+- Clicking a carousel item should navigate to the **show’s detail page**
 
-| ID  | Title                    |
-| --- | ------------------------ |
-| 1   | Personal Growth          |
-| 2   | Investigative Journalism |
-| 3   | History                  |
-| 4   | Comedy                   |
-| 5   | Entertainment            |
-| 6   | Business                 |
-| 7   | Fiction                  |
-| 8   | News                     |
-| 9   | Kids and Family          |
+### 🌗 Theme Toggle
 
-## Deliverables
+- Include a **toggle** for switching between light and dark mode
+- **Persist theme selection** using `localStorage`
+- Ensure the **entire app UI updates smoothly**
+- Use **appropriate icons** (e.g., sun/moon) to indicate current theme
+- Reflect selected theme across all views and components
 
-1. **Homepage / Listing Page**
+## 🌟 Stretch Goal – Listening Progress (Optional)
 
-   - List of shows with clickable links or buttons that navigate to each show's detail page.
-   - Filters and search functionality that maintain state when navigating back from detail pages.
+- Save playback position per episode and **resume playback**
+- Mark episodes as **"finished"** once fully played
+- Display **progress indicators** for episodes in progress
+- Allow users to **reset listening history**
+- Save listening history in local storage
 
-2. **Dynamic Show Detail Page**
+## ✅ Deliverables
 
-   - A unique page for each show, accessible via a dynamic route.
-   - Fetch and display show details including:
-     - Title
-     - Large podcast image
-     - Description
-     - Genre tags
-     - Last updated date (formatted)
-   - Display loading indicator while fetching data.
-   - Display user-friendly error message if fetching fails.
-   - Handle empty states gracefully (e.g., show not found).
+- A fully functional and deployed podcast app
+- Source code in **GitHub** with clear commit history
+- Live demo link (**Vercel**)
+- (Optional) Short demo video
 
-3. **Season Navigation Component**
+## 💡 Tips
 
-   - UI to expand/collapse seasons.
-   - Show season title and episode count.
-   - List episodes per season including:
-     - Episode number
-     - Episode title
-     - Season image
-     - Shortened episode description
-
-4. **State Preservation**
-
-   - Maintain applied filters and search terms when navigating back to the homepage from a show detail page.
-
-5. **Code Quality**
-
-   - Well-structured, modular React components.
-   - JSDoc comments for all major functions and modules.
-   - Consistent and readable formatting across all files.
-
-6. **Responsive Design**
-
-   - The UI adapts smoothly across different device sizes (mobile, tablet, desktop).
-
-7. **README Documentation**
-   - Brief project overview.
-   - Instructions for running the project locally.
-   - Description of main features and any known limitations.
+- Prioritise **user experience** and **clean component structure**
+- Use **React best practices** (components, hooks, state management)
+- Ensure the app is **responsive** and **mobile-friendly**
+- Test localStorage and audio persistence thoroughly
+- Make use of the **React ecosystem** to accelerate development!
 
 ---
+
+## 🧑‍⚖️ Panel Review
+
+After submitting your project, you will be required to present your work to a coach or panel of coaches.
+
+During this session, you must:
+
+- **Demonstrate** all the features you have implemented in your application.
+- **Explain** how each feature was built, referring directly to your code (e.g., components, state, hooks, storage).
+- Discuss the **decisions** you made during development (e.g., choice of libraries, structure, naming conventions).
+- Break down the **logic** behind key functionalities (e.g., how audio persistence or favouriting works).
+- Be prepared to answer **questions** from the coaches about your project, code structure, and implementation choices.
+
+This is your opportunity to showcase both your technical and problem-solving skills—treat it like a real-world project revsiew.
