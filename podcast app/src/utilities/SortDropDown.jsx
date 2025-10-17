@@ -12,7 +12,7 @@ import React from "react";
 export default function SortDropDown({ value, onChange }) {
 	return (
 		<label>
-			Sort by :
+			Sort by:
 			<select value={value} onChange={(e) => onChange(e.target.value)}>
 				<option value="newest">Newest First</option>
 				<option value="az">A-Z</option>
