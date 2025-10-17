@@ -30,7 +30,7 @@ body {
 	justify-content: center;
 	gap: 1rem;
 	margin: 10px;
-	margin-top: 80px;
+	margin-top: 120px;
 }
 .controls-right {
 	margin-left: auto;
@@ -124,7 +124,18 @@ select {
 	font-size: 1rem;
 }
 h1 {
-	margin-top: 0;
+	margin: 0;
+	color: white;
+}
+
+.home-link{
+	font-size: 25px;
+	color: #f0f0f0;
+	text-decoration: none;
+}
+
+.home-link:hover{
+	color: #4a90e2;
 }
 
 .spinner {
@@ -307,8 +318,6 @@ h1 {
 	font-size: 0.85rem;
 }
 
-/* added css
- */
 .read-more {
 	background: none;
 	border: none;
@@ -322,18 +331,42 @@ h1 {
 	text-decoration: underline;
 }
 
-.episode-item {
-	border-bottom: 1px solid #ddd;
-	padding: 0.8rem 0;
+.fav-btn.active {
+	animation: pop 0.3s ease;
+}
+
+.season-selector {
 	display: flex;
-	gap: 1rem;
+	align-items: center;
+	gap: 0.5rem;
+	margin: 1rem 0;
 }
 
-.episode-index {
-	font-weight: bold;
-	color: #888;
+.season-selector label {
+	font-weight: 500;
 }
 
-.episode-content p {
-	margin: 0.3rem 0;
+.season-selector select {
+	padding: 0.4rem 0.6rem;
+	border-radius: 8px;
+	border: 1px solid #ccc;
+	font-size: 0.95rem;
+	cursor: pointer;
+}
+.back-btn {
+	background: none;
+	border: none;
+	color: #333;
+	font-size: 1rem;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	gap: 0.3rem;
+	font-weight: 500;
+	margin-bottom: 1rem;
+	transition: color 0.2s ease;
+}
+
+.back-btn:hover {
+	color: #e63946; /* red hover */
 }
