@@ -8,7 +8,7 @@
 	padding: 1rem;
 	border: 1px solid #e0e0e0;
 	border-radius: 12px;
-	background-color: #fff;
+	background-color:var(--card-background-color);
 	transition: box-shadow 0.2s ease;
 	margin-bottom: 1rem;
 }
@@ -29,7 +29,7 @@
 	height: 70px;
 	border-radius: 8px;
 	object-fit: cover;
-	background: #ddd;
+	background: var(--card-background-color);
 }
 
 .episode-info {
@@ -45,6 +45,7 @@
 }
 
 .episode-info h4 .fav-btn {
+  color: var(--text-color);
 	background: none;
 	border: none;
 	font-size: 1.3rem;
@@ -68,7 +69,7 @@
 }
 
 .episode-info .description {
-	color: #555;
+	color:var(--text-color);
 	margin-top: 0.4rem;
 	font-size: 0.95rem;
 }
@@ -80,8 +81,8 @@
 }
 
 .play-btn {
-	background: #111;
-	color: #fff;
+	background: #585866;
+	color: var(--card-background-color);
 	border: none;
 	border-radius: 6px;
 	padding: 0.5rem 0.9rem;
