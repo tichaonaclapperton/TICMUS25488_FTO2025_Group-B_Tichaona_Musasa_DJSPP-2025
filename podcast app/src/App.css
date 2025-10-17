@@ -31,15 +31,36 @@ body {
 	font-family: system-ui, Segoe UI, Roboto, Helvetica, Arial;
 	margin: 0;
 }
+
+/* Base styles for mobile devices (up to 767px) */
 .app-header {
 	position: fixed;
+	z-index: 200;
 	width: 100%;
+	/* Change flex-direction to column to stack elements */
 	display: flex;
-	justify-content: space-between;
+	flex-direction: column; 
 	padding: 1rem;
 	background: rgb(88, 88, 102);
 	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-}
+	/* Use align-items to center elements horizontally */
+	align-items: center; 
+  }
+  
+
+  
+  /* On small screens, hide the `.controls-right` to reduce clutter */
+  .controls-right {
+	display: none;
+  }
+  
+  .search {
+	width: 100%; 
+	margin-top: 1rem; 
+  }
+  
+  
+
 .brand {
 	text-decoration: none;
 	font-size: 18px;
@@ -56,13 +77,9 @@ body {
 	justify-content: center;
 	gap: 1rem;
 	margin: 10px;
-	margin-top: 120px;
+	margin-top: 1.2rem;
 }
-.controls-right {
-	margin-left: auto;
-	display: flex;
-	gap: 8px;
-}
+
 .grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -72,9 +89,14 @@ body {
 	display: block;
 	gap: 12px;
 	padding: 12px;
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
 	border: 1px solid #eee;
 	border-radius: 8px;
 	cursor: pointer;
+}
+.podcast-card:hover{
+	transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
 }
 .cover {
 	width: 100%;
@@ -181,7 +203,7 @@ h1 {
 	}
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
 	.search {
 		width: 50%;
 	}
@@ -190,7 +212,7 @@ h1 {
 		align-items: flex-end;
 		gap: 1.5rem;
 	}
-}
+} */
 
 .detail-page {
 	padding: 2rem;
@@ -396,23 +418,6 @@ h1 {
 	color: #e63946; 
 }
 
-/* recommended shows */
-
-/* .recommended-section {
-	margin-top: 5rem;
-}
-.recommended-title {
-	font-size: 1.5rem;
-	margin-bottom: 1rem;
-}
-.recommended-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-	gap: 1rem;
-} */
-/* .recommended-section {
-	margin-bottom: 8rem;
-} */
 .recommended-title {
 	font-size: 1.6rem;
 	font-weight: 600;
@@ -425,5 +430,34 @@ h1 {
 	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 	gap: 1.2rem;
 }
+/* Media query for larger screens (tablets and desktops) */
+@media (min-width: 768px) {
+	.app-header {
+	  /* Restore the horizontal layout */
+	  flex-direction: row; 
+	  justify-content: space-between;
+	  align-items: center; /* Center items vertically */
+	  padding: 1rem 2rem; /* Add more horizontal padding */
+	}
+  
+	.search {
+	  width: 50%; /* Set a reasonable width for larger screens */
+	  margin-top: 0;
+	}
+  
+	.controls {
+	  /* Align controls on larger screens */
+	  flex-direction: row;
+	  align-items: flex-end;
+	  gap: 1.5rem;
+	}
+  
+	/* Show the right-aligned controls again */
+	.controls-right {
+	  display: flex;
+	  margin-left: auto;
+	}
+  }
+  
 
 
