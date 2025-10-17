@@ -1,72 +1,104 @@
+/* ==================================== */
+/* ===  Mobile-First Base Styles  === */
+/* ==================================== */
+
+/* Outer wrapper */
 .recommended-section {
-    margin: 2rem 0;
-    position: relative;
-  }
-  
-  .recommended-title {
-    font-size: 1.6rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    padding-left: 0.5rem;
-  }
-  
-  /* Outer wrapper to position scroll buttons */
-  .carousel-wrapper {
-    position: relative;
-  }
-  
-  /* Horizontal scroll container */
-  .recommended-carousel {
-    display: flex;
-    gap: 1rem;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding: 0.5rem 0 1rem;
-    scrollbar-width: none;
-  }
-  
-  .recommended-carousel::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .recommended-item {
-    flex: 0 0 auto;
-    width: 220px;
-    cursor: pointer;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-  
-  .recommended-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-  }
-  
-  /* Scroll buttons */
-  .scroll-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    font-size: 2rem;
-    width: 40px;
-    height: 60px;
-    cursor: pointer;
-    border-radius: 8px;
-    z-index: 10;
-    transition: background 0.2s;
-  }
-  
-  .scroll-btn:hover {
-    background: rgba(0, 0, 0, 0.7);
-  }
-  
-  .scroll-btn.left {
-    left: 0;
-  }
-  
-  .scroll-btn.right {
-    right: 0;
-  }
-  
+	margin: 2rem 0;
+	position: relative;
+	margin-bottom: 0;
+	z-index: 100;
+}
+
+.recommended-title {
+	font-size: 1.4rem;
+	font-weight: 600;
+	margin-bottom: 1rem;
+	padding-left: 0.5rem;
+}
+
+/* Outer wrapper to position scroll buttons */
+.carousel-wrapper {
+	position: relative;
+}
+
+/* Horizontal scroll container */
+.recommended-carousel {
+	display: flex;
+	gap: 1rem;
+	overflow-x: auto;
+	scroll-behavior: smooth;
+	padding: 0.5rem 0 1rem;
+	scrollbar-width: none; /* For Firefox */
+	z-index: 100;
+	-webkit-overflow-scrolling: touch; /* Improved mobile scrolling */
+}
+
+.recommended-carousel::-webkit-scrollbar {
+	display: none; /* For WebKit browsers (Chrome, Safari) */
+}
+
+.recommended-item {
+	/* Use a fluid width based on viewport or a flexible unit */
+	width: 70vw;
+	max-width: 220px;
+	flex: 0 0 auto;
+	cursor: pointer;
+	box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.recommended-item:hover {
+	transform: scale(1.05);
+	box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* Hide scroll buttons on small screens */
+.scroll-btn {
+	display: none;
+}
+
+/* ==================================== */
+/* ===  Medium and Large Screens  === */
+/* ==================================== */
+
+/* For screens larger than 768px */
+@media (min-width: 768px) {
+	.recommended-title {
+		font-size: 1.6rem;
+	}
+
+	.recommended-item {
+		width: 220px;
+	}
+
+	/* Show scroll buttons on larger screens */
+	.scroll-btn {
+		display: block;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		background: rgba(0, 0, 0, 0.5);
+		color: white;
+		border: none;
+		font-size: 2rem;
+		width: 40px;
+		height: 60px;
+		cursor: pointer;
+		border-radius: 8px;
+		z-index: 10;
+		transition: background 0.2s;
+	}
+
+	.scroll-btn:hover {
+		background: rgba(0, 0, 0, 0.7);
+	}
+
+	.scroll-btn.left {
+		left: 0;
+	}
+
+	.scroll-btn.right {
+		right: 0;
+	}
+}
