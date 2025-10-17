@@ -7,6 +7,7 @@ import GenreFilter from "../utilities/GenreFilter";
 import Pagination from "../utilities/Pagination";
 import SortDropdown from "../utilities/SortDropDown";
 import PodcastPreviewCard from "../components/PodCastPreviewCard";
+import RecommendedShows from "../components/RecommendedShows";
 import { genres } from "../genres/genre";
 
 const API_URL = "https://podcast-api.netlify.app/";
@@ -133,6 +134,7 @@ export default function Home() {
 
 	return (
 		<main className="container">
+			<RecommendedShows />
 			<section className="controls">
 				<SearchBar value={searchTerm} onChange={setSearchTerm} />
 				<div className="controls-right">
