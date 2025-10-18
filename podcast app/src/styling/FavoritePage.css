@@ -13,6 +13,10 @@
 	color: #666;
 	margin-bottom: 1.5rem;
 }
+.filters{
+	display: flex;
+	justify-content: space-around;
+}
 
 .favorites-controls {
 	display: flex;
