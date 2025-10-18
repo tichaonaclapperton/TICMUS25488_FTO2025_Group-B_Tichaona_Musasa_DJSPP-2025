@@ -73,7 +73,7 @@ export default function FavoritesPage() {
 					</label>
 
 					<label>
-						Show:
+						
 						<select
 							value={showFilter}
 							onChange={(e) => setShowFilter(e.target.value)}
